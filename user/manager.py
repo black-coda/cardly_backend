@@ -6,7 +6,7 @@ class CustomUserManager(BaseUserManager):
     Custom manager for the custom user model.
     """
 
-    def create_user(self, email, password, **extra_fields):
+    def create_user(self, email, password = None, **extra_fields):
         """
         Create and return a regular user with an email and password.
         """
@@ -27,7 +27,7 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password, **extra_fields):
+    def create_superuser(self, email, password = None, **extra_fields):
         """
         Create and return a superuser with an email, password, and superuser attributes.
         """
